@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
 })
 
 // on authentication
+// router.get('/register', authController.getRegister);
 router.post('/register', authController.postRegister);
 router.get('/login', authController.getLogin);
 router.get('/logout', authController.getLogout);

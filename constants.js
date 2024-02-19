@@ -4,5 +4,4 @@ const dbCredentials = {
 };
 
 exports.dbConnectionString = `mongodb+srv://${dbCredentials.username}:${dbCredentials.password}@gameplayhub.jkjdleh.mongodb.net/?retryWrites=true&w=majority`;
-
 exports.port = 3333;
