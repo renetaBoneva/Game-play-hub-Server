@@ -5,3 +5,4 @@ const dbCredentials = {
 
 exports.dbConnectionString = `mongodb+srv://${dbCredentials.username}:${dbCredentials.password}@gameplayhub.jkjdleh.mongodb.net/?retryWrites=true&w=majority`;
 exports.port = 3333;
+exports.SECRET = '2a2e13724ac9764654700bee56f4185c181ebe61';

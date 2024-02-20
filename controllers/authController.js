@@ -1,4 +1,3 @@
-const { restart } = require('nodemon');
 const authService = require('../services/authService');
 
 // exports.getRegister = async (req, res) => {
@@ -18,10 +17,36 @@ exports.postRegister = async (req, res) => {
 
 };
 
-exports.getLogin = async (req, res) => {
-    res.send('ok');
+exports.postLogin = async (req, res) => {
+    const { email, password } = req.body;
+
+    try {
+        const result = await authService.login( email, password );
+
+        res.json(result);
+    } catch (err) {
+        res.status(401).send(`Error: ${err.message}`);
+    }
 };
 
 exports.getLogout = async (req, res) => {
-    res.send('ok');
+    res.json({});
 };
+
+exports.getProfile = async (req, res) => {
+    const { _userID } = req.params;
+
+    try {
+        const user = await authService.findById(_userID).lean();
+
+        if (user) {
+            const { password, ...result } = user;
+
+            return res.json(result);
+        }
+
+        throw new Error('User not found!');
+    } catch (err) {
+        res.status(404).send(`Error: ${err.message}`);
+    }
+}

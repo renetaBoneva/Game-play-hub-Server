@@ -9,12 +9,12 @@ router.get('/', (req, res) => {
 // on authentication
 // router.get('/register', authController.getRegister);
 router.post('/register', authController.postRegister);
-router.get('/login', authController.getLogin);
+router.post('/login', authController.postLogin);
 router.get('/logout', authController.getLogout);
 
 // // on my profile page
-// router.get('/user/:_userID');
+router.get('/users/:_userID', authController.getProfile);
 // // on level up
-// router.patch('/user/:_userID');
+// router.patch('/users/:_userID');
 
 module.exports = router;
