@@ -4,11 +4,11 @@ const authController = require('./controllers/authController');
 const { isAuth, isOwner } = require('./middlewares/authMiddleware');
 
 router.get('/', (req, res) => {
-    res.send('<h1>Server is running ...</h1>');
+    res.send('<h1>Now server is running ...</h1>');
 })
 
 // on authentication
-router.get('/login', authController.getLogin);
+// router.get('/login', authController.getLogin);
 router.post('/register', authController.postRegister);
 router.post('/login', authController.postLogin);
 router.get('/logout', isAuth, authController.getLogout);
