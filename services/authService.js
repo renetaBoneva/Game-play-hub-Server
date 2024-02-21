@@ -6,6 +6,7 @@ const User = require('../models/User');
 
 exports.findOneByEmail = (email) => User.findOne({ email });
 exports.findById = (_userID) => User.findById(_userID);
+exports.findByIdAndDelete = (_userID) => User.findByIdAndDelete(_userID);
 
 exports.register = async ({ username, email, password, rePass }) => {
     if (password !== rePass) {
@@ -49,13 +50,13 @@ exports.login = async (email, password) => {
     }
 
     const payload = {
-        _userID: user._userID,
+        _userID: user._id,
         email,
         username: user.username
     }
 
     const accessToken = await jwt.sign(payload, SECRET);
-
+    
     return {
         ...payload,
         accessToken
