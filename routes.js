@@ -8,7 +8,6 @@ router.get('/', (req, res) => {
 })
 
 // on authentication
-// router.get('/login', authController.getLogin);
 router.post('/register', authController.postRegister);
 router.post('/login', authController.postLogin);
 router.get('/logout', isAuth, authController.getLogout);
