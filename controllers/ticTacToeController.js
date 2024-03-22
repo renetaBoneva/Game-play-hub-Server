@@ -31,7 +31,7 @@ exports.AIresponse = async (req, res) => {
         })
 
         const aiResponse = completion.choices[0].message.content;
-        res.statues(200).json({ aiResponse });
+        res.status(200).json({ aiResponse });
     }
-    res.statues(400).json({ "Error": "Incorrect input data!" });
+    res.status(400).json({ "Error": "Incorrect input data!" });
 }
