@@ -4,7 +4,7 @@ const { OpenAI } = require('openai');
 exports.AIresponse = async (req, res) => {
     const openai = new OpenAI({ apiKey: OPEN_AI_KEY });
     const aiModel = 'gpt-4-turbo-preview';
-    const boardJSON = req.query.boardl
+    const boardJSON = req.body.board;
 
     if (boardJSON && boardJSON.length === 3) {
         const prompt = [];
