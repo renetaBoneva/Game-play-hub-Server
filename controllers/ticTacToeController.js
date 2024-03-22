@@ -3,10 +3,12 @@ const { OpenAI } = require('openai');
 
 exports.AIresponse = async (req, res) => {
     const openai = new OpenAI({ apiKey: OPEN_AI_KEY });
-    const aiModel = 'gpt-4-turbo-preview';
-    const boardJSON = req.body.board;
+    const aiModel = 'gpt-3.5-turbo';
+    const board = req.body.board;
+    const boardJSON = JSON.stringify({ board });
 
-    if (boardJSON && boardJSON.length === 3) {
+    console.log(board && board.length === 3);
+    if (board && board.length === 3) {
         const prompt = [];
         prompt.push('You are an expert tic tac toe player.');
         prompt.push('You play as O. Focus on winning. Play extremely well.');
