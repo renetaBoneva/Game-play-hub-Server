@@ -19,6 +19,6 @@ router.delete('/users/:_userID', isOwner, authController.deleteProfile);
 // // on level up
 // router.patch('/users/:_userID');
 
-router.get('games/ticTacToe/AIresponse', ticTacToeController.AIresponse);
+router.get('/games/ticTacToe/AIresponse', ticTacToeController.AIresponse);
 
 module.exports = router;
