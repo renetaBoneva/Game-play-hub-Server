@@ -2,11 +2,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const handlebars = require('express-handlebars');
-
-const { dbConnectionString } = require('./constants.js');
 const router = require('./routes.js');
-const { port } = require('./config/index.js');
+const { port, dbConnectionString } = require('./config/index.js');
 
 const app = express();
 

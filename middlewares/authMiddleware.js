@@ -1,5 +1,5 @@
+const { SECRET } = require('../config');
 const jwt = require('../lib/jsonwebtoken');
-const { SECRET } = require('../constants');
 
 exports.isAuth = async (req, res, next) => {
     const accessToken = req.headers["x-authorization"];

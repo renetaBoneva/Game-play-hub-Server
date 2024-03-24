@@ -7,7 +7,6 @@ const dbCredentials = {
 };
 
 const config = {
-    'dbCredentials': process.env['dbCredentials'] || dbCredentials,
     'dbConnectionString': process.env['dbConnectionString'] || `mongodb+srv://${dbCredentials.username}:${dbCredentials.password}@gameplayhub.jkjdleh.mongodb.net/?retryWrites=true&w=majority`,
     'port': process.env['port'] || 3333,
     'SECRET': process.env['SECRET'] || '2a2e13724ac9764654700bee56f4185c181ebe61',
