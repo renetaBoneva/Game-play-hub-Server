@@ -3,15 +3,14 @@ const { OpenAI } = require('openai');
 
 exports.AIresponse = async (req, res) => {
     const openai = new OpenAI({ apiKey: OPEN_AI_KEY });
-    const aiModel = 'gpt-3.5-turbo';
+    const aiModel = 'gpt-3.5-turbo-0125';
     const board = req.body.board;
     const boardJSON = JSON.stringify({ board });
 
-    console.log(board && board.length === 3);
     if (board && board.length === 3) {
         const prompt = [];
         prompt.push('You are an expert tic tac toe player.');
-        prompt.push('You play as O. Focus on winning. Play extremely well.');
+        prompt.push('You play as O. You have to make just one mark in an empty place. Focus on winning. Play extremely well.');
         prompt.push('For the json content i provide as input, please give me json output in this format:');
         prompt.push('{board:[[],[],[]]}');
 
@@ -32,8 +31,9 @@ exports.AIresponse = async (req, res) => {
             response_format: { 'type': 'json_object' }
         })
 
+        console.log(completion);
         const aiResponse = completion.choices[0].message.content;
-        res.status(200).json({ aiResponse });
+       return res.status(200).json({ aiResponse });
     }
     res.status(400).json({ "Error": "Incorrect input data!" });
 }
