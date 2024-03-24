@@ -4,20 +4,11 @@ const cors = require('cors');
 
 const handlebars = require('express-handlebars');
 
-const { port, dbConnectionString } = require('./constants.js');
+const { dbConnectionString } = require('./constants.js');
 const router = require('./routes.js');
+const { port } = require('./config/index.js');
 
 const app = express();
-
-// for testing purposes:
-// ------
-app.engine('hbs', handlebars.engine({
-    extname: 'hbs'
-}))
-app.set('view engine', 'hbs')
-
-app.use('/static', express.static('public'))
-// ---------
 
 app.use(cors());
 app.use(express.urlencoded({ extended: false }));

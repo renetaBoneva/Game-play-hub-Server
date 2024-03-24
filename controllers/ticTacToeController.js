@@ -1,7 +1,9 @@
-const { OPEN_AI_KEY } = require("../constants");
 const { OpenAI } = require('openai');
 
+const config = require('../config');
+
 exports.AIresponse = async (req, res) => {
+    const OPEN_AI_KEY = config.OPEN_AI_KEY;
     const openai = new OpenAI({ apiKey: OPEN_AI_KEY });
     const aiModel = 'gpt-3.5-turbo-0125';
     const board = req.body.board;
