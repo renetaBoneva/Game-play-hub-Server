@@ -12,6 +12,7 @@ router.get('/', (req, res) => {
 router.post('/register', authController.postRegister);
 router.post('/login', authController.postLogin);
 router.get('/logout', isAuth, authController.getLogout);
+router.post('/token/isValid', isAuth, authController.isValidAccessToken);
 
 // // on my profile page
 router.get('/users/:_userID', isOwner, authController.getProfile);

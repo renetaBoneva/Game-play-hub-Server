@@ -33,7 +33,6 @@ exports.AIresponse = async (req, res) => {
             response_format: { 'type': 'json_object' }
         })
 
-        console.log(completion);
         const aiResponse = completion.choices[0].message.content;
        return res.status(200).json({ aiResponse });
     }

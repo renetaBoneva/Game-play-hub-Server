@@ -18,7 +18,6 @@ exports.postLogin = async (req, res) => {
 
     try {
         const result = await authService.login(email, password);
-        console.log(result);
         res.json(result);
     } catch (err) {
         res.status(401).json({ "Error": `${err.message}` });
@@ -41,7 +40,7 @@ exports.getProfile = async (req, res) => {
             return res.json(result);
         }
 
-        throw new Error ('User not found!');
+        throw new Error('User not found!');
     } catch (err) {
         res.status(404).json({ "Error": `${err.message}` });
     }
@@ -57,4 +56,9 @@ exports.deleteProfile = async (req, res) => {
     } catch (err) {
         res.json({ "Error": `${err.message}` });
     }
+}
+
+exports.isValidAccessToken = async (req, res) => {
+    const accessToken = req.headers["x-authorization"];
+    res.status(200).json({ accessToken });
 }
