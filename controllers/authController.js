@@ -60,5 +60,7 @@ exports.deleteProfile = async (req, res) => {
 
 exports.isValidAccessToken = async (req, res) => {
     const accessToken = req.headers["x-authorization"];
-    res.status(200).json({ accessToken });
+    const { _userID, email, username } = req.verifiedToken;
+
+    res.status(200).json({ _userID, email, username, accessToken });
 }

@@ -6,7 +6,8 @@ exports.isAuth = async (req, res, next) => {
 
     if (accessToken) {
         try {
-            await jwt.verify(accessToken, SECRET);
+            const verifiedToken = await jwt.verify(accessToken, SECRET);
+            req.verifiedToken = verifiedToken;
         } catch (err) {
             return res.status(401).json({ "Error": err.message });
         }
