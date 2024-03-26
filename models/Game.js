@@ -5,13 +5,21 @@ const gameSchema = new mongoose.Schema({
         type: String,
         required: [true, 'Name is required!'],
     },
+    coverImgPath: {
+        type: String,
+        required: [true, 'Cover image path is required!'],
+    },
+    link: {
+        type: String,
+        required: [true, 'Link is required!'],
+    },
     maxLevel: {
         type: Number,
-        required: [true, 'Name is required!'],
+        min: 1
     },
-    recordScore: {
+    bestScores: {
         type: String,
-        required: [true, 'Name is required!'],
+        min: 1,
     },
 });
 

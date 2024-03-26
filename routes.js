@@ -1,8 +1,9 @@
 const router = require('express').Router();
 
 const authController = require('./controllers/authController');
+const gamesController = require('./controllers/gamesController');
 const ticTacToeController = require('./controllers/ticTacToeController');
-const { isAuth, isOwner } = require('./middlewares/authMiddleware');
+const { isAuth, isOwner, isAdmin } = require('./middlewares/authMiddleware');
 
 router.get('/', (req, res) => {
     res.send('<h1>Server is running ...</h1>');
@@ -20,6 +21,9 @@ router.delete('/users/:_userID', isOwner, authController.deleteProfile);
 // // on level up
 // router.patch('/users/:_userID');
 
+// games
+router.get('/games', gamesController.getGames);
+router.post('/games', isAdmin, gamesController.postGames);
 router.post('/games/ticTacToe/AIresponse', ticTacToeController.AIresponse);
 
 module.exports = router;
