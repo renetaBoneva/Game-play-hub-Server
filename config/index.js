@@ -11,6 +11,7 @@ const config = {
     'port': process.env['port'] || 3333,
     'SECRET': process.env['SECRET'] || '2a2e13724ac9764654700bee56f4185c181ebe61',
     'OPEN_AI_KEY': process.env['OPEN_AI_KEY'] || null,
+    'adminAccessToken': process.env['adminAccessToken']
 }
 
 module.exports = config;

@@ -1,6 +1,6 @@
 const { SECRET } = require('../config');
-const { adminAccessToken } = require('../constants');
 const jwt = require('../lib/jsonwebtoken');
+const config = require('../config/index');
 
 exports.isAuth = async (req, res, next) => {
     const accessToken = req.headers["x-authorization"];
@@ -42,7 +42,7 @@ exports.isOwner = async (req, res, next) => {
 exports.isAdmin = (req, res, next) => {
     const reqToken = req.headers['x-admin'];
 
-    if (reqToken !== adminAccessToken) {
+    if (reqToken !== config.adminAccessToken) {
         return res.status(401).json({ "Error": "Unauthorized!" });
     }
     next();
