@@ -3,7 +3,6 @@ const { getAll, createOneGame } = require("../services/gamesService");
 exports.getGames = async (req, res) => {
     try {
         const games = await getAll();
-        console.log(games);
 
         return res.status(200).json(games);
     } catch (err) {
