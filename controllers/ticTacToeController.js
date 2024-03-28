@@ -13,6 +13,7 @@ exports.AIresponse = async (req, res) => {
         const prompt = [];
         prompt.push('You are an expert tic tac toe player.');
         prompt.push('You play as O. You have to make just one mark in an empty place. Focus on winning. Play extremely well.');
+        prompt.push('You you should not let the player with X to win!');
         prompt.push('For the json content i provide as input, please give me json output in this format:');
         prompt.push('{board:[[],[],[]]}');
 
